@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="login-container">
+  <div class="form-box">
+
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    
+    <h2>Register</h2>
+
+    <input id="rname" placeholder="Name">
+    <input id="remail" placeholder="Email">
+    <input id="rpass" type="password" placeholder="Password">
+
+    <button onclick="register()">Register</button>
+
+    <p>Already have account?</p>
+    <button onclick="goLogin()">Login</button>
+
+  </div>
+</div>
+
+<script>
+function goBack(){
+    window.history.back();
+}
+
+function goLogin(){
+    window.location = "/login";
+}
+</script>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
+
+
+

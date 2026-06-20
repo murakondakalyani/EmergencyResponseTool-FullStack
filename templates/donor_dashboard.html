@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Donor Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="form-box">
+
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+        <h2>Donor Dashboard</h2>
+
+        <div class="btn-group">
+            <button onclick="showRegister()">Register</button>
+            <button onclick="showRequests()">Requests</button>
+        </div>
+
+        <!-- DONOR REGISTER -->
+        <form id="donorForm" style="display:none;">
+            <input name="name" placeholder="Name" required>
+            <input name="blood_group" placeholder="Blood Group" required>
+            <input name="area" placeholder="Area" required>
+            <input name="city" placeholder="City" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- REQUESTS -->
+        <div id="requestListBox" style="display:none;">
+            <h3>Available Requests</h3>
+            <ul id="requestList"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/donor.js') }}"></script>
+
+<script>
+function goBack(){ window.history.back(); }
+
+function showRegister(){
+    donorForm.style.display="block";
+    requestListBox.style.display="none";
+}
+
+function showRequests(){
+    donorForm.style.display="none";
+    requestListBox.style.display="block";
+    loadRequests();
+}
+</script>
+
+</body>
+</html>

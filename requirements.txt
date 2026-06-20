@@ -1,0 +1,8 @@
+pip install flask pymongo flask-cors werkzeug
+
+
+pip install flask-socketio
+
+pip install flask flask-cors pymongo werkzeug
+
+.venv\Scripts\activate

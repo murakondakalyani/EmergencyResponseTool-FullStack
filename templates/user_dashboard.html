@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="form-box">
+
+        <!-- BACK BUTTON -->
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+        <h2>User Dashboard</h2>
+
+        <!-- BUTTONS -->
+        <div class="btn-group">
+            <button onclick="showRequest()">Request</button>
+            <button onclick="showStatus()">Status</button>
+        </div>
+
+        <!-- REQUEST FORM -->
+        <form id="requestForm" enctype="multipart/form-data">
+            <input name="blood_group" placeholder="Blood Group" required>
+            <input name="hospital" placeholder="Hospital" required>
+            <input name="area" placeholder="Area" required>
+            <input name="city" placeholder="City" required>
+            <input type="file" name="proof" required>
+
+            <button type="submit">Submit Request</button>
+        </form>
+
+        <!-- STATUS SECTION -->
+        <div id="statusBox" style="display:none;">
+            <h3>Your Request Status</h3>
+            <ul id="statusList"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script src="{{ url_for('static', filename='js/user.js') }}"></script>
+
+<script>
+function goBack(){
+    window.history.back();
+}
+
+function showRequest(){
+    document.getElementById("requestForm").style.display = "block";
+    document.getElementById("statusBox").style.display = "none";
+}
+
+function showStatus(){
+    document.getElementById("requestForm").style.display = "none";
+    document.getElementById("statusBox").style.display = "block";
+    loadStatus();   // 🔥 load data
+}
+
+document.getElementById("requestForm").onsubmit = function(e){
+    e.preventDefault();   // 🚀 STOP page reload
+
+    let data = new FormData(this);
+
+    fetch("/request", {
+        method: "POST",
+        body: data
+    })
+    .then(res => res.json())
+    .then(d => {
+        alert("Request Submitted Successfully!");
+    })
+    .catch(err => console.log(err));
+};
+
+</script>
+
+</body>
+</html>

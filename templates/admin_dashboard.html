@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+<div class="form-box admin-box">
+
+<button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+<h2>Admin Dashboard</h2>
+
+<!-- NAVIGATION -->
+<div class="btn-group">
+    <button onclick="showSection('requests')">Requests</button>
+    <button onclick="showSection('donors')">Donors</button>
+    <button onclick="showSection('users')">Manage Users</button>
+    <button onclick="showSection('history')">History</button>
+</div>
+
+<!-- REQUESTS -->
+<div id="requests" class="section" style="display:none;">
+    <h3>Requests</h3>
+    <ul id="requestList"></ul>
+</div>
+
+<!-- DONORS -->
+<div id="donors" class="section" style="display:none;">
+    <h3>Donors</h3>
+    <ul id="donorList"></ul>
+</div>
+
+<!-- USERS -->
+<div id="users" class="section" style="display:none;">
+    <h3>All Users</h3>
+    <ul id="userList"></ul>
+</div>
+
+<!-- HISTORY -->
+<div id="history" class="section" style="display:none;">
+    <h3>Completed Requests</h3>
+    <ul id="historyList"></ul>
+</div>
+
+</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+
+<script>
+function goBack(){ window.history.back(); }
+
+function showSection(id){
+    document.querySelectorAll(".section").forEach(s => s.style.display="none");
+    document.getElementById(id).style.display = "block";
+
+    if(id==="requests") loadRequests();
+    if(id==="donors") loadDonors();
+    if(id==="users") loadUsers();
+    if(id==="history") loadHistory();
+}
+</script>
+
+</body>
+</html>

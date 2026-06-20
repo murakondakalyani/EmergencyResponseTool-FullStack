@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+    background: url("../bg3.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
+
+/* CENTER EVERYTHING */
+.container{
+    text-align:center;
+    margin-top:120px;
+}
+
+/* TITLE */
+h1{
+    margin-bottom:40px;
+}
+
+/* CARD LAYOUT */
+.card-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+/* CARD STYLE */
+.card{
+    width:220px;
+    padding:30px;
+    border-radius:15px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* HOVER EFFECT */
+.card:hover{
+    transform: translateY(-10px) scale(1.05);
+    background: crimson;
+}
+
+/* TEXT */
+.card h2{
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* CENTER CONTAINER */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GLASS FORM BOX */
+.form-box {
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+
+    text-align: center;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+
+    background: crimson;
+    color: white;
+    cursor: pointer;
+}
+
+/* HOVER EFFECT */
+button:hover {
+    background: darkred;
+}
+
+/* TITLE */
+#roleTitle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-btn {
+    width: auto;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    background: gray;
+    border-radius: 8px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-group button {
+    flex: 1;
+}
+

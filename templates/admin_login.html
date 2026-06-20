@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="login-container">
+  <div class="form-box">
+
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+    <h2>Admin Login</h2>
+
+    <input id="email" placeholder="Admin ID">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="adminLogin()">Login</button>
+
+  </div>
+</div>
+
+<script>
+
+function goBack(){
+    window.history.back();
+}
+
+function adminLogin(){
+    fetch("/login", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+            email:email.value,
+            password:password.value
+        })
+    })
+    .then(res=>res.json())
+    .then(d=>{
+        if(d.role==="admin"){
+            window.location="/admin";
+        } else {
+            alert("Invalid Admin Credentials");
+        }
+    });
+}
+</script>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
