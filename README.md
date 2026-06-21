@@ -5,6 +5,12 @@ The Emergency Response Tool is a web-based platform designed to connect blood do
 
 This project aims to reduce the time required to find suitable blood donors during critical situations by matching donors based on blood group and location.
 
+
+
+https://github.com/user-attachments/assets/50fb1995-2d36-461f-998a-62e4da873606
+
+
+
 Features
 👤 User Module
 User Registration & Login
